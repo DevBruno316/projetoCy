@@ -1,4 +1,6 @@
 /cypress.config.js
 /node_modules
-/package-lock.json
-/package.json
+/cypress/screenshots
+/cypress/downloads
+/.vscode
+
