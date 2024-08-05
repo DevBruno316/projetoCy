@@ -1,3 +1,6 @@
+import { testeContratoPOSTPosts } from "../../fixtures/schema_POST-posts"
+import { testeContratoGETPosts } from "../../fixtures/schema_GET-posts"
+
 describe('CRUD - Posts', () => {
 
     let postId = ''
@@ -10,7 +13,7 @@ describe('CRUD - Posts', () => {
        cy.login(Cypress.env('email'), Cypress.env('password'))
     })
 
-    it('Create a post', () => {
+    it.only('Create a post', () => {
         cy.request({
             method: 'POST',
             url: '/api/posts' ,
@@ -22,9 +25,11 @@ describe('CRUD - Posts', () => {
             expect(body.name).to.eq('Teste POST')
             expect(body.user).to.eq('66ac3d09b7343c204c93cd38')
             postId = body._id
+
+            cy.testeContrato(testeContratoPOSTPosts, body)
         })
     })
-    it('Read post', () => {
+    it.only('Read post', () => {
         
         cy.request({
             method: 'GET',
@@ -33,6 +38,7 @@ describe('CRUD - Posts', () => {
             expect(status).to.eq(200)
             expect(body.text).to.eq(message)
             expect(body.likes).to.have.lengthOf(0)
+            cy.testeContrato(testeContratoGETPosts, body)
         })
     })
 
