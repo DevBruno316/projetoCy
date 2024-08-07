@@ -8,8 +8,6 @@ describe('CRUD - Posts', () => {
 
 
     beforeEach(() => {
-        
-        
        cy.login(Cypress.env('email'), Cypress.env('password'))
     })
 

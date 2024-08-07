@@ -2,14 +2,18 @@ import Ajv from 'ajv'
 import { definitionHelper  } from '../utils/schemaDefinitions'
 
 Cypress.Commands.add('login', (email,password) => {
-    cy.request({
-        method: 'POST',
-        url: '/api/auth',
-        body: {
-                email:email,
-                password: password
-              }
-        })
+
+    
+        cy.request({
+            method: 'POST',
+            url: '/api/auth',
+            body: {
+                    email:email,
+                    password: password
+                }
+            })
+    
+        
     
 })
 
